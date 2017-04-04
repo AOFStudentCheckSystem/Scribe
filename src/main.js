@@ -3,13 +3,23 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-default/index.css'
+import Vuex from 'vuex'
+import storeParams from './vuex/store'
+
+Vue.use(ElementUI)
+Vue.use(Vuex)
+
+export const store = new Vuex.Store(storeParams)
 
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
-  router,
-  template: '<App/>',
-  components: { App }
+    el: '#app',
+    router,
+    template: '<App/>',
+    components: {App},
+    store
 })
