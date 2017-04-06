@@ -1,22 +1,20 @@
 <template>
     <div id="app">
+        <Navbar></Navbar>
         <router-view></router-view>
     </div>
 </template>
 
 <script>
+    import Navbar from '@/components/Navbar.vue'
     export default {
-        name: 'app'
+        name: 'app',
+        components: {
+            Navbar
+        }
     }
 </script>
 
 <style>
-    #app {
-        font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        text-align: center;
-        color: #2c3e50;
-        margin-top: 60px;
-    }
+
 </style>
