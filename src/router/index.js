@@ -1,21 +1,17 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import Menu from '@/pages/Menu.vue'
-import Login from '@/pages/Login.vue'
+import Hello from '@/components/Hello'
+import LoginView from '@/components/LoginView'
 
-Vue.use(Router)
-
-export default new Router({
+export default {
     routes: [
+        {
+            path: '/',
+            name: 'Hello',
+            component: Hello
+        },
         {
             path: '/login',
             name: 'Login',
-            component: Login
-        },
-        {
-            path: '/',
-            name: 'Menu',
-            component: Menu
+            component: LoginView
         }
     ]
-})
+}

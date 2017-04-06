@@ -2,16 +2,31 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
-import router from './router'
-import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-default/index.css'
 import Vuex from 'vuex'
-import storeParams from './vuex/store'
+import storeOptions from './vuex/store'
+import Router from 'vue-router'
+import routerOptions from './router'
+import VueAxios from 'vue-axios'
+import axios from 'axios'
+import iView from 'iview'
+import 'iview/dist/styles/iview.css'
 
-Vue.use(ElementUI)
+const axiosInstance = axios.create({
+    baseURL: `http://jsonplaceholder.typicode.com/`,
+    headers: {
+        Authorization: ''
+    }
+})
+
+Vue.use(VueAxios, axiosInstance)
+
 Vue.use(Vuex)
+const store = new Vuex.Store(storeOptions)
 
-export const store = new Vuex.Store(storeParams)
+Vue.use(Router)
+const router = new Router(routerOptions)
+
+Vue.use(iView)
 
 Vue.config.productionTip = false
 
@@ -19,7 +34,8 @@ Vue.config.productionTip = false
 new Vue({
     el: '#app',
     router,
+    store,
     template: '<App/>',
-    components: {App},
-    store
+    components: {App}
 })
+
